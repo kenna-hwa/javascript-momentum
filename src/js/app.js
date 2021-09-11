@@ -2,7 +2,10 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = loginForm.querySelector("input");
 const greeting = document.querySelector("#greeting");
+
+// string 변수 저장
 const HIDDEN_CLASSNAME = "hidden"
+const USERNAME_KEY = "username"
 
 function onLoginSubmit(e) {
     e.preventDefault();
@@ -14,18 +17,24 @@ function onLoginSubmit(e) {
         alert("이름은 10자 이내로 입력해주세요")
         return false;
     }
-    localStorage.setItem("username", username);
-    const printName = localStorage.getItem("username")
-
-    if(printName) {
     loginForm.classList.add(HIDDEN_CLASSNAME);
-    greeting.classList.remove(HIDDEN_CLASSNAME);
-    greeting.textContent=`WELCOME ${printName}!`;
-    }   
-    
-    return true;
-
+    localStorage.setItem(USERNAME_KEY, username);
+    paintGreetings(username)
 }
 
-loginForm.addEventListener("submit", onLoginSubmit)
+const paintGreetings = (name) => {
+    greeting.textContent = `Welcome ${name}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
 
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null) {
+    // show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit)
+} else{
+    // show the h1greeting
+    paintGreetings(savedUsername)
+
+}
