@@ -14,12 +14,15 @@ function onLoginSubmit(e) {
         alert("이름은 10자 이내로 입력해주세요")
         return false;
     }
-    loginForm.classList.add(HIDDEN_CLASSNAME);
-    greeting.textContent=`WELCOME ${username}!`;
+    localStorage.setItem("username", username);
+    const printName = localStorage.getItem("username")
 
-    if(username){
-        greeting.classList.remove(HIDDEN_CLASSNAME);
-    }
+    if(printName) {
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    greeting.textContent=`WELCOME ${printName}!`;
+    }   
+    
     return true;
 
 }
