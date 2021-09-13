@@ -1,13 +1,21 @@
 const todoForm = document.querySelector("#todo-form");
-const todoList = document.querySelector("#todo-list");
 const todoInput = todoForm.querySelector("input");
+const todoList = document.querySelector("#todo-list");
 
-todoInput.addEventListener("submit", addTodo);
 
-function addTodo(e){
-    e.preventDefault();
-    const todo = todoInput.value;
-    const todoLi = document.createElement("li");
-    todoLi.textContent = todo;
-    todoList.appendChild(todoLi);
+function paintToDo(newtodo){
+    const listItem = document.createElement("li");
+    const span = document.createElement("span")
+    listItem.appendChild(span)
+    span.textContent = newtodo;
+    todoList.appendChild(listItem);
+} 
+
+function handleTodoSubmit(event){
+    event.preventDefault();
+    const newtodo = todoInput.value;
+    todoInput.value = "";
+    paintToDo(newtodo);
 }
+
+todoForm.addEventListener("submit", handleTodoSubmit);
