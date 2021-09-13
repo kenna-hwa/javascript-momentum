@@ -13,7 +13,6 @@ const images = [{
 
     const chosenImage = () => {
         const num = Math.floor(Math.random()*images.length);
-        console.log(images[num].src)
         const bgImages = document.createElement("img");
         bgImages.src=`${images[num].src}`
         document.body.appendChild(bgImages);
