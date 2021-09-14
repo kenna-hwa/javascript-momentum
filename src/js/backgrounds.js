@@ -14,6 +14,7 @@ const images = [{
     const chosenImage = () => {
         const num = Math.floor(Math.random()*images.length);
         const bgImages = document.createElement("img");
+        bgImages.className="bgImages";
         bgImages.src=`${images[num].src}`
         document.body.appendChild(bgImages);
     };

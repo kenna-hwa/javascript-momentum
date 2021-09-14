@@ -1,3 +1,86 @@
+body{
+    color : #eee;
+    font-family:'Times New Roman', Times, serif;
+    max-height: 700px;
+}
 .hidden{
     display: none;
+}
+.bgImages{
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+    top: 0;
+    left: 0;
+}
+#clock{
+    width: 30%;
+    margin: 150px auto 60px;
+    text-align: center;
+    font-size: 80px;
+}
+#greeting{
+    width: 30%;
+    margin: 0 auto 50px;
+    text-align: center;
+    color: #ccc;
+    text-shadow: rgba(100, 100, 100, 0.8);
+}
+#todo-form{
+    width: 300px;
+    margin: 0 auto;
+}
+#todo-form>input{
+    width: 300px;
+    height: 40px;
+    font-size: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+#todo-list{
+    width: 50%;
+    margin: auto;
+    color: #ccc;
+    text-align: center;
+    list-style: none;
+}
+#todo-list>li{
+    margin: 20px;
+    font-size: 30px;
+}
+#todo-list>li>span{
+    margin-right: 30px;
+}
+#todo-list>li>button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+#quote{
+    position: relative;
+    width: 60%;
+    text-align: center;
+    top: 0px;
+    margin: 50px auto;
+    font-size: 14px;
+}
+#quote span{
+    font-family:'Courier New', Courier, monospace;
+    font-weight:lighter;
+    line-break: auto;
+    word-wrap: break-word;
+}
+#quote span:last-child{
+    display: block;
+    margin-top: 10px;
+}
+#weather{
+    position: absolute;
+    width: 12%;
+    top: 20px;
+    right: 10px;
+}
+#weather>span:last-child{
+    margin-left: 5px;
 }
